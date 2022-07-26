@@ -893,7 +893,7 @@ def raster_plot():
     plt.figure(figsize=(16,8))
     for i in range(N):
         y = 0.5*i
-        for t_ in t[i]:
+        for t_ in t[N-i-1]:
             plt.plot([t_/scf, t_/scf], [y, y+0.1], '-k') # vertical sticks
     ax = plt.gca()
     ax.set_yticks(np.arange(N)*0.5)
@@ -904,7 +904,7 @@ def raster_plot():
 
     for i in range(N):
         ri = scf*len(t[i]) / T
-        print(f"Neuron #{i:d} average spike rate (1/s): {ri:.2f}")
+        print(f"Neuron #{i+1:d} average spike rate (1/s): {ri:.2f}")
 
 
 def zcross(x, mode):
